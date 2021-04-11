@@ -14,11 +14,6 @@ db = SQLAlchemy(app)
 
 admin = Admin(app)
 
-class Cart(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    product_id = db.Column(db.Integer)
-    product_name = db.Column(db.String(20))
-    quantity = db.Column(db.Integer)
 
 
 class User(db.Model):
@@ -356,7 +351,6 @@ def register():
 admin.add_view(ModelView(User, db.session))
 admin.add_view(ModelView(Post, db.session))
 admin.add_view(ModelView(Product, db.session))
-admin.add_view(ModelView(Cart, db.session))
 admin.add_view(ModelView(Payment, db.session))
 admin.add_view(ModelView(Comment, db.session))
 admin.add_view(ModelView(Orders, db.session))
